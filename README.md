@@ -85,7 +85,7 @@ Use these names so the games can be compared. Send each one **at most once per i
 
 Game-specific events, beyond the shared set:
 
-- **castaway:** `castaway1_arrived` and `castaway5_arrived`, the first and the fifth newcomer moving in (three castaways start, so the 4th and 8th resident). Castaway sends no `tutorial_done` or `job1_finished`.
+- **castaway:** `first_newcomer`, the first person beyond the starting three moving in; `offer_moment`, the "Chapter 2 complete" card where the free story ends and the unlock is offered. Castaway sends no `tutorial_done` or `job1_finished`.
 
 ### Client rules
 
