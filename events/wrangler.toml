@@ -1,0 +1,21 @@
+# The mclabs event counter (README.md, "Events"). Deploy: npx wrangler deploy (from this folder).
+name = "mclabs-events"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+workers_dev = false
+routes = [{ pattern = "events.mclabs.xyz", custom_domain = true }]
+
+# No request logs: Workers Logs off, no Logpush, and the code never logs.
+[observability]
+enabled = false
+
+[vars]
+# Games allowed to send events. "test" is for checking an integration end to end; its counts can be ignored.
+APPS = "stitchwork,castaway,askwick,test"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "mclabs-events"
+database_id = "66a06dba-ab13-4e2e-b426-9fb8ef3bcb17"
+
+# READ_KEY (the key for /v1/counts and the table at /) is a secret: npx wrangler secret put READ_KEY

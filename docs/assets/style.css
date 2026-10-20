@@ -1,0 +1,114 @@
+/* mclabs.xyz: one stylesheet for every page. No third-party requests: the fonts are self-hosted Nunito (OFL). */
+@font-face { font-family: "Nunito"; font-weight: 600; font-display: swap; src: url("fonts/nunito-semibold.woff") format("woff"); }
+@font-face { font-family: "Nunito"; font-weight: 800; font-display: swap; src: url("fonts/nunito-extrabold.woff") format("woff"); }
+
+:root {
+  --bg: #fbf4e8;
+  --surface: #fffaf2;
+  --ink: #4a3b33;
+  --ink-soft: #7a685c;
+  --coral: #e9806b;
+  --coral-deep: #c9604c;
+  --sage: #dce5d5;
+  --sage-deep: #6e9a7a;
+  --line: #eadccb;
+  --shadow: 0 18px 40px -22px rgba(74, 59, 51, 0.45);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #2b231f;
+    --surface: #352b26;
+    --ink: #f6ead9;
+    --ink-soft: #cdbba8;
+    --coral: #f0927e;
+    --coral-deep: #f4a693;
+    --sage: #3a4537;
+    --sage-deep: #9cc3a5;
+    --line: #4a3d35;
+    --shadow: 0 18px 40px -22px rgba(0, 0, 0, 0.7);
+    color-scheme: dark;
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 600 18px/1.6 "Nunito", ui-rounded, "SF Pro Rounded", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+a { color: var(--coral-deep); text-underline-offset: 3px; }
+a:hover { color: var(--coral); }
+img { max-width: 100%; height: auto; display: block; }
+h1, h2, h3 { font-weight: 800; line-height: 1.2; margin: 0 0 0.5em; }
+h1 { font-size: clamp(34px, 6vw, 52px); letter-spacing: -0.01em; }
+h2 { font-size: 26px; margin-top: 1.8em; }
+h3 { font-size: 20px; margin-top: 1.4em; }
+p, ul, ol { margin: 0 0 1em; }
+li { margin-bottom: 0.35em; }
+
+.wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+.narrow { max-width: 720px; }
+
+/* A short running stitch, the game's sewn-on label motif. */
+.stitch { display: block; width: 150px; height: 6px; margin: 14px 0 26px;
+  background: repeating-linear-gradient(90deg, var(--coral) 0 18px, transparent 18px 28px); border-radius: 3px; }
+.center .stitch { margin-left: auto; margin-right: auto; }
+
+header.site { padding: 22px 0; }
+header.site .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.brand { font-weight: 800; font-size: 22px; color: var(--ink); text-decoration: none; letter-spacing: 0.01em; }
+.brand span { color: var(--coral); }
+nav a { color: var(--ink-soft); text-decoration: none; margin-left: 18px; }
+nav a:hover, nav a[aria-current="page"] { color: var(--ink); }
+
+main { padding-bottom: 48px; }
+.hero { padding: 36px 0 24px; }
+.lead { font-size: 21px; color: var(--ink-soft); max-width: 40em; }
+.center { text-align: center; }
+.center .lead { margin-left: auto; margin-right: auto; }
+
+.games { display: grid; gap: 22px; }
+.game { display: grid; grid-template-columns: 140px 1fr; gap: 28px; align-items: center;
+  background: var(--surface); border: 2px dashed var(--line); border-radius: 28px; padding: 28px; box-shadow: var(--shadow);
+  color: inherit; text-decoration: none; }
+.game:hover { border-color: var(--coral); color: inherit; }
+.game h2 { margin: 0 0 6px; font-size: 28px; }
+.game p { margin: 0; color: var(--ink-soft); }
+.icon { border-radius: 22%; box-shadow: var(--shadow); }
+
+.game-head { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 28px 0 8px; }
+.game-head .icon { width: 132px; margin-bottom: 22px; }
+.badges { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin: 8px 0 0; }
+.badge { display: inline-block; padding: 12px 22px; border-radius: 999px; background: var(--ink); color: var(--bg); font-weight: 800; text-decoration: none; }
+.badge.soon { background: transparent; color: var(--ink-soft); border: 2px dashed var(--line); }
+
+.shots { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 18px 16px 28px; margin: 18px -16px 0;
+  -webkit-overflow-scrolling: touch; }
+.shots img { flex: 0 0 auto; width: min(260px, 70vw); border-radius: 26px; box-shadow: var(--shadow); scroll-snap-align: center; }
+
+.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin-top: 12px; padding: 0; list-style: none; }
+.features li { background: var(--surface); border-radius: 22px; padding: 20px 22px; margin: 0; border: 1px solid var(--line); }
+.features strong { display: block; font-weight: 800; font-size: 19px; margin-bottom: 4px; }
+.features span { color: var(--ink-soft); }
+
+.note { background: var(--sage); border-radius: 20px; padding: 18px 22px; }
+.doc h2 { font-size: 23px; }
+.doc .updated { color: var(--ink-soft); }
+details { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 14px 20px; margin-bottom: 12px; }
+summary { font-weight: 800; cursor: pointer; }
+details[open] summary { margin-bottom: 8px; }
+details p:last-child, details ol:last-child, details ul:last-child { margin-bottom: 0; }
+
+footer.site { border-top: 2px dashed var(--line); padding: 26px 0 40px; color: var(--ink-soft); font-size: 16px; }
+footer.site .wrap { display: flex; flex-wrap: wrap; gap: 10px 22px; justify-content: space-between; }
+footer.site a { color: var(--ink-soft); }
+
+@media (max-width: 560px) {
+  body { font-size: 17px; }
+  .game { grid-template-columns: 1fr; text-align: center; justify-items: center; padding: 24px 18px; }
+  .game .icon { width: 112px; }
+  nav a { margin-left: 12px; }
+}
