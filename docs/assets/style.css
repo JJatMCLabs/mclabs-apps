@@ -88,6 +88,8 @@ main { padding-bottom: 48px; }
 .shots { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 18px 16px 28px; margin: 18px -16px 0;
   -webkit-overflow-scrolling: touch; }
 .shots img { flex: 0 0 auto; width: min(260px, 70vw); border-radius: 26px; box-shadow: var(--shadow); scroll-snap-align: center; }
+/* Landscape games: wider frames, a smaller corner radius to match. */
+.shots.wide img { width: min(560px, 86vw); border-radius: 18px; }
 
 .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin-top: 12px; padding: 0; list-style: none; }
 .features li { background: var(--surface); border-radius: 22px; padding: 20px 22px; margin: 0; border: 1px solid var(--line); }

@@ -83,6 +83,10 @@ Use these names so the games can be compared. Send each one **at most once per i
 | `unlock_bought` | The purchase is made. Not a restore. |
 | `opened` with `days` 0, 1 or 7 | The game is opened that many days after install, counted on launch and on return from the background |
 
+Game-specific events, beyond the shared set:
+
+- **castaway:** `castaway1_arrived` and `castaway5_arrived`, the first and the fifth newcomer moving in (three castaways start, so the 4th and 8th resident). Castaway sends no `tutorial_done` or `job1_finished`.
+
 ### Client rules
 
 - **Release builds only.** Development builds send nothing, or send as `app: "test"` when testing, so they don't skew the real numbers.
